@@ -8,55 +8,72 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       background-color: #dff5e1; /* أخضر هادئ */
     }
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-      padding: 20px;
-      border: 1px solid #b2d8b9;
-      border-radius: 10px;
-      background-color: #ffffff;
+    #splash-screen, #main-screen {
+      display: none;
+      width: 100%;
+      text-align: center;
     }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
+    #splash-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #388e3c; /* خلفية شاشة البداية */
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    #main-screen {
+      flex-direction: column;
+    }
+    .search-button {
+      padding: 15px 30px;
       margin-top: 20px;
+      font-size: 18px;
       color: white;
       background-color: #4CAF50; /* زر أخضر */
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    .btn:hover {
-      background-color: #388e3c; /* زر أخضر داكن */
+    .search-button:hover {
+      background-color: #2e7d32; /* زر أخضر داكن */
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Lunar Bot</h1>
-    <p>هذا هو تطبيق Telegram Mini App الخاص بك.</p>
-    <button class="btn" onclick="showTelegramInfo()">عرض معلومات المستخدم</button>
-    <p id="user-info"></p>
+  <!-- شاشة الترحيب -->
+  <div id="splash-screen">
+    LUNAR BOT
+  </div>
+
+  <!-- الشاشة الرئيسية -->
+  <div id="main-screen">
+    <p style="font-size: 24px;">اضغط هنا للبحث عن الوظيفة</p>
+    <button class="search-button" onclick="searchJob()">ابحث الآن</button>
   </div>
 
   <script>
-    function showTelegramInfo() {
-      const telegram = window.Telegram.WebApp;
-      telegram.initDataUnsafe && telegram.ready();
+    // عرض شاشة البداية لمدة 3 ثوانٍ
+    const splashScreen = document.getElementById('splash-screen');
+    const mainScreen = document.getElementById('main-screen');
 
-      const userInfo = telegram.initDataUnsafe?.user ?? "لم يتم العثور على بيانات المستخدم.";
-      const infoElement = document.getElementById('user-info');
+    splashScreen.style.display = 'flex';
+    setTimeout(() => {
+      splashScreen.style.display = 'none';
+      mainScreen.style.display = 'flex';
+    }, 3000);
 
-      if (userInfo) {
-        infoElement.innerText = `مرحبًا ${userInfo.first_name || "مستخدم"}!`;
-      } else {
-        infoElement.innerText = "لم نتمكن من جلب بيانات المستخدم.";
-      }
+    // وظيفة البحث
+    function searchJob() {
+      alert('البحث عن الوظيفة قيد التنفيذ!');
     }
   </script>
 </body>
