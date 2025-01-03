@@ -1,91 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telegram Mini App</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100vh;
-      background-color: #000; /* أسود */
-      color: white; /* نص أبيض */
-    }
-    #splash-screen, #main-screen {
-      display: none;
-      width: 100%;
-      text-align: center;
-    }
+    /* ... (rest of the styles) */
     #splash-screen {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* ملء الشاشة */
-      background-color: #000; /* أسود */
-      color: white;
-      font-size: 48px; /* حجم النص */
-      font-weight: bold;
+      /* ... (rest of the splash-screen styles) */
+      position: relative; /* To position the text absolutely */
     }
-    #main-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    .header-text {
-      font-size: 24px;
-      margin-top: 20px;
-      text-align: center;
-    }
-    .search-button {
-      padding: 15px 30px;
-      margin-top: 50px; /* مسافة من النص العلوي */
-      font-size: 18px;
-      color: white;
-      background-color: #4CAF50; /* زر أخضر */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .search-button:hover {
-      background-color: #2e7d32; /* زر أخضر داكن */
+    #splash-screen span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the text */
     }
   </style>
 </head>
 <body>
-  <!-- شاشة الترحيب -->
   <div id="splash-screen">
-    JT
-  </div>
-
-  <!-- الشاشة الرئيسية -->
-  <div id="main-screen">
-    <p class="header-text">اضغط هنا للبحث عن الوظيفة</p>
-    <button class="search-button" onclick="searchJob()">ابحث الآن</button>
-  </div>
-
-  <script>
-    // عرض شاشة البداية لمدة 3 ثوانٍ
-    const splashScreen = document.getElementById('splash-screen');
-    const mainScreen = document.getElementById('main-screen');
-
-    splashScreen.style.display = 'flex';
-    setTimeout(() => {
-      splashScreen.style.display = 'none';
-      mainScreen.style.display = 'flex';
-    }, 3000);
-
-    // وظيفة البحث
-    function searchJob() {
-      alert('البحث عن الوظيفة قيد التنفيذ!');
-    }
-  </script>
-</body>
+    <span>JT</span> </div>
+  </body>
 </html>
