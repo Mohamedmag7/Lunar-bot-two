@@ -11,7 +11,8 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* ترتيب العناصر عمودي */
+      justify-content: flex-start; /* تموضع العناصر في الأعلى */
       align-items: center;
       height: 100vh;
       background-color: #000; /* أسود */
@@ -33,10 +34,16 @@
     }
     #main-screen {
       flex-direction: column;
+      align-items: center;
+    }
+    .header-text {
+      font-size: 24px;
+      margin-top: 20px;
+      text-align: center;
     }
     .search-button {
       padding: 15px 30px;
-      margin-top: 20px;
+      margin-top: 50px; /* مسافة من النص العلوي */
       font-size: 18px;
       color: white;
       background-color: #4CAF50; /* زر أخضر */
@@ -57,7 +64,7 @@
 
   <!-- الشاشة الرئيسية -->
   <div id="main-screen">
-    <p style="font-size: 24px;">اضغط هنا للبحث عن الوظيفة</p>
+    <p class="header-text">اضغط هنا للبحث عن الوظيفة</p>
     <button class="search-button" onclick="searchJob()">ابحث الآن</button>
   </div>
 
